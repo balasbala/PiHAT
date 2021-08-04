@@ -12,7 +12,7 @@ class pihatui(QtWidgets.QMainWindow,Ui_form):
         self.ui = Ui_form()
         self.rgb = RGB_set()
         self.th = SI7006_TH()
-        self.amb_rgb = BH1745
+        self.amb_rgb = BH1745()
         self.ui.setupUi(self)
         self.ui.button_RED.toggled.connect(self.button_RED)
         self.ui.button_GREEN.toggled.connect(self.button_GREEN)
@@ -50,9 +50,9 @@ class pihatui(QtWidgets.QMainWindow,Ui_form):
         humidity = self.th.humidity_read()
         self.ui.button_humid.SetText(str(round(humidity,2)))
 
-        red = self.amb_RGB.readRED()
-        green = self.amb_RGB.readGREEN()
-        blue = self.amb_RGB.readBLUE()
+        red = self.amb_rgb.readRED()
+        green = self.amb_rgb.readGREEN()
+        blue = self.amb_rgb.readBLUE()
         self.ui.button_amb_r.SetText(str(round(red,2)))
         self.ui.button_amb_g.SetText(str(round(green,2)))
         self.ui.button_amb_b.SetText(str(round(blue,2)))
