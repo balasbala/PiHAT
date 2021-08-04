@@ -43,6 +43,7 @@ class pihatui(QtWidgets.QMainWindow,Ui_form):
     def temp_button(self):
         temperature = self.th.temperature_read()
         self.ui.button_temp.SetText(str(round(temperature,2)))
+        
     def humid_button(self):
         humidity = self.th.humidity_read()
         self.ui.button_humid.SetText(str(round(humidity,2)))
