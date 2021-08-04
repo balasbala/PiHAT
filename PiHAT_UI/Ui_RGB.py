@@ -1,6 +1,7 @@
 from  PyQt5 import QtCore,QtGui,QtWidgets
-from pihatui import Ui_form
+from source import Ui_form
 from RGB import RGB_set
+from Temp_Humid import SI7006_TH
 from PyQt5.QtWidgets import QApplication
 from PyQt5 import uic
 
@@ -9,6 +10,7 @@ class pihatui(QtWidgets.QMainWindow,Ui_form):
         super(pihatui,self).__init__()
         self.ui = Ui_form()
         self.rgb = RGB_set()
+        self.th = SI7006_TH()
         self.ui.setupUi(self)
         self.ui.button_RED.toggled.connect(self.button_RED)
         self.ui.button_GREEN.toggled.connect(self.button_GREEN)
@@ -37,6 +39,13 @@ class pihatui(QtWidgets.QMainWindow,Ui_form):
             else:
                 print("BLUE is De_Seleced")
                 self.rgb.BLUE_toggle(0)
+                
+    def temp_button(self):
+        temperature = self.th.temperature_read()
+        self.ui.button_temp.SetText(str(round(temperature,2)))
+    def humid_button(self):
+        humidity = self.th.humidity_read()
+        self.ui.button_humid.SetText(str(round(humidity,2)))
 
 app = QtWidgets.QApplication([])
 window = pihatui()
