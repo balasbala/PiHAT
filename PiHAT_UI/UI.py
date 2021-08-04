@@ -4,6 +4,7 @@ from RGB import RGB_set
 from Temp_Humid import SI7006_TH
 from PyQt5.QtWidgets import QApplication
 from PyQt5 import uic
+import sys
 
 class pihatui(QtWidgets.QMainWindow,Ui_form):
     def __init__(self):
@@ -48,7 +49,7 @@ class pihatui(QtWidgets.QMainWindow,Ui_form):
         humidity = self.th.humidity_read()
         self.ui.button_humid.SetText(str(round(humidity,2)))
 
-app = QtWidgets.QApplication([])
+app = QtWidgets.QApplication(sys.argv)
 window = pihatui()
 window.show()
 app.exec()
