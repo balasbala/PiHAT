@@ -45,17 +45,17 @@ class pihatui(QtWidgets.QMainWindow,Ui_form):
                 
     def temp_humid_amb(self):
         temperature = self.th.temperature_read()
-        self.ui.button_temp.SetText(str(round(temperature,2)))
+        self.ui.button_temp.setText(str(round(temperature,2)))
         
         humidity = self.th.humidity_read()
-        self.ui.button_humid.SetText(str(round(humidity,2)))
+        self.ui.button_humid.setText(str(round(humidity,2)))
 
         red = self.amb_rgb.readRED()
         green = self.amb_rgb.readGREEN()
         blue = self.amb_rgb.readBLUE()
-        self.ui.button_amb_r.SetText(str(round(red,2)))
-        self.ui.button_amb_g.SetText(str(round(green,2)))
-        self.ui.button_amb_b.SetText(str(round(blue,2)))
+        self.ui.button_amb_r.setText(str(round(red,2)))
+        self.ui.button_amb_g.setText(str(round(green,2)))
+        self.ui.button_amb_b.setText(str(round(blue,2)))
 
 
     
