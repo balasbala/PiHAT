@@ -17,7 +17,7 @@ class pihatui(QtWidgets.QMainWindow,Ui_form):
         self.ui.button_RED.toggled.connect(self.button_RED)
         self.ui.button_GREEN.toggled.connect(self.button_GREEN)
         self.ui.button_BLUE.toggled.connect(self.button_BLUE)
-        self.ui.button_refresh.pressed.connect(self.temp_humid)
+        self.ui.button_refresh.pressed.connect(self.temp_humid_amb)
 
     def button_RED(self,value):
             if(value == True):
